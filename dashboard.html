@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة تحكم: توقع انصراف العملاء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --surface-muted: #f0efe9;
+    --border: #e1e0d9;
+    --text-primary: #17171a;
+    --text-secondary: #55544f;
+    --text-muted: #8b897f;
+    --accent-bg: #e6f1fb;
+    --accent-text: #0c447c;
+    --accent: #2a78d6;
+    --accent-strong: #185fa5;
+    --gray-bar: #c3c2b7;
+    --gray-bar-2: #898781;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212;
+      --surface: #1a1a1a;
+      --surface-muted: #202020;
+      --border: #2c2c2a;
+      --text-primary: #f2f2f0;
+      --text-secondary: #c3c2b7;
+      --text-muted: #8b897f;
+      --accent-bg: #0c2e4d;
+      --accent-text: #a9cef2;
+      --accent: #4f9be8;
+      --accent-strong: #6fb0ee;
+      --gray-bar: #4a4a47;
+      --gray-bar-2: #6b6a65;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  header { margin-bottom: 2rem; }
+  header h1 { font-size: 26px; font-weight: 700; margin: 0 0 6px; }
+  header p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+  h2.section { font-size: 16px; font-weight: 500; color: var(--text-secondary); margin: 2.5rem 0 12px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .kpi { background: var(--surface-muted); border-radius: 10px; padding: 1rem 1.1rem; }
+  .kpi.hero { background: var(--accent-bg); }
+  .kpi .label { font-size: 13px; color: var(--text-secondary); margin: 0 0 4px; }
+  .kpi.hero .label { color: var(--accent-text); }
+  .kpi .value { font-size: 26px; font-weight: 700; margin: 0; }
+  .kpi.hero .value { color: var(--accent-text); }
+  .kpi .sub { font-size: 12.5px; color: var(--text-muted); margin: 4px 0 0; }
+  .kpi.hero .sub { color: var(--accent-text); opacity: 0.85; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+  }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 10px; font-size: 12.5px; color: var(--text-secondary); }
+  .legend span.dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-left: 6px; }
+  .chart-box { position: relative; width: 100%; }
+  .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .rec-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem; }
+  .rec-card .icon {
+    width: 34px; height: 34px; border-radius: 8px; background: var(--accent-bg); color: var(--accent-text);
+    display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; margin-bottom: 10px;
+  }
+  .rec-card .title { font-weight: 700; font-size: 15px; margin: 0 0 5px; }
+  .rec-card .body { font-size: 13.5px; color: var(--text-secondary); margin: 0; }
+  footer { margin-top: 3rem; font-size: 12.5px; color: var(--text-muted); text-align: center; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>لوحة تحكم: توقع انصراف العملاء</h1>
+  <p>مقارنة بين النموذج الساذج والنموذج الأول والنموذج الأذكى، وأهم العوامل والتوصيات لمتخذ القرار.</p>
+</header>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <p class="label">نموذج ساذج</p>
+    <p class="value">73.5%</p>
+    <p class="sub">لا يكتشف أي عميل معرّض للانصراف</p>
+  </div>
+  <div class="kpi">
+    <p class="label">النموذج الأول (لوجستي)</p>
+    <p class="value">80.6%</p>
+    <p class="sub">يكتشف 56% من العملاء المعرّضين</p>
+  </div>
+  <div class="kpi hero">
+    <p class="label">النموذج الأذكى (نهائي)</p>
+    <p class="value">76.3%</p>
+    <p class="sub">يكتشف 75% من العملاء المعرّضين</p>
+  </div>
+  <div class="kpi">
+    <p class="label">عملاء أُنقذوا إضافيون</p>
+    <p class="value">+281</p>
+    <p class="sub">مقارنة بالنموذج الساذج</p>
+  </div>
+</div>
+
+<h2 class="section">مقارنة النماذج الثلاثة</h2>
+<div class="card">
+  <div class="legend">
+    <span><span class="dot" style="background:var(--gray-bar);"></span>نموذج ساذج</span>
+    <span><span class="dot" style="background:var(--gray-bar-2);"></span>النموذج الأول</span>
+    <span><span class="dot" style="background:var(--accent);"></span>النموذج الأذكى</span>
+  </div>
+  <div class="chart-box" style="height:300px;">
+    <canvas id="modelsChart" role="img" aria-label="مخطط أعمدة يقارن الدقة والـPrecision والـRecall وF1 بين النماذج الثلاثة">النموذج الساذج: دقة 73.5%، Precision صفر، Recall صفر، F1 صفر. النموذج الأول: دقة 80.6%، Precision 65.9%، Recall 55.9%، F1 60.5%. النموذج الأذكى: دقة 76.3%، Precision 53.8%، Recall 75.1%، F1 62.7%.</canvas>
+  </div>
+</div>
+
+<h2 class="section">أهم 5 عوامل أثّرت في قرار النموذج الأذكى</h2>
+<div class="card">
+  <div class="chart-box" style="height:260px;">
+    <canvas id="importanceChart" role="img" aria-label="مخطط أعمدة أفقي لأهم 5 عوامل في النموذج">مدة الاشتراك 17.3%، عقد سنتين 16.0%، إجمالي الفواتير 11.0%، خدمة الألياف الضوئية 9.3%، الدفع بالشيك الإلكتروني 7.6%.</canvas>
+  </div>
+</div>
+
+<h2 class="section">توصيات لمتخذ القرار</h2>
+<div class="rec-grid">
+  <div class="rec-card">
+    <div class="icon">1</div>
+    <p class="title">استهدفوا العملاء الجدد فورًا</p>
+    <p class="body">مدة الاشتراك أهم عامل في النموذج. أول 90 يومًا نافذة حرجة لبرنامج ولاء استباقي.</p>
+  </div>
+  <div class="rec-card">
+    <div class="icon">2</div>
+    <p class="title">حفّزوا العقود الطويلة</p>
+    <p class="body">عقد السنتين يخفّض الانصراف إلى 2.8% مقابل 42.7% للعقد الشهري.</p>
+  </div>
+  <div class="rec-card">
+    <div class="icon">3</div>
+    <p class="title">حقّقوا في خدمة الألياف الضوئية</p>
+    <p class="body">الأعلى انصرافًا (41.9%)، لكن السبب جودة الخدمة لا السعر.</p>
+  </div>
+  <div class="rec-card">
+    <div class="icon">4</div>
+    <p class="title">قدّموا خدمات الحماية مجانًا</p>
+    <p class="body">OnlineSecurity وTechSupport يخفّضان الانصراف داخل الألياف من 49% إلى 22%.</p>
+  </div>
+</div>
+
+<footer>
+  مشروع توقع انصراف العملاء (Telco Customer Churn Prediction) — التفاصيل الكاملة في
+  <a href="README.md">README.md</a> والتحليل الكامل في <a href="test.ipynb">test.ipynb</a>.
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  // Chart.js's responsive auto-sizing collapses the canvas to width:0 on this
+  // RTL page (a known Chart.js/RTL interaction). We size canvases explicitly
+  // from their wrapper's clientWidth instead of relying on responsive:true.
+  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const gridColor = isDark ? '#2c2c2a' : '#e1e0d9';
+  const tickColor = isDark ? '#c3c2b7' : '#898781';
+  const grayBar = isDark ? '#4a4a47' : '#c3c2b7';
+  const grayBar2 = isDark ? '#6b6a65' : '#898781';
+  const accent = isDark ? '#4f9be8' : '#2a78d6';
+
+  let modelsChart, importanceChart;
+
+  function sizeCanvas(canvas, height) {
+    canvas.removeAttribute('style');
+    canvas.width = canvas.parentNode.clientWidth;
+    canvas.height = height;
+  }
+
+  function buildCharts() {
+    if (modelsChart) modelsChart.destroy();
+    if (importanceChart) importanceChart.destroy();
+
+    const modelsCanvas = document.getElementById('modelsChart');
+    sizeCanvas(modelsCanvas, 300);
+    modelsChart = new Chart(modelsCanvas, {
+      type: 'bar',
+      data: {
+        labels: ['Accuracy', 'Precision', 'Recall', 'F1'],
+        datasets: [
+          { label: 'نموذج ساذج', data: [73.5, 0, 0, 0], backgroundColor: grayBar, borderRadius: 4 },
+          { label: 'النموذج الأول', data: [80.6, 65.9, 55.9, 60.5], backgroundColor: grayBar2, borderRadius: 4 },
+          { label: 'النموذج الأذكى', data: [76.3, 53.8, 75.1, 62.7], backgroundColor: accent, borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: (c) => c.dataset.label + ': ' + c.parsed.y + '%' } }
+        },
+        scales: {
+          y: { beginAtZero: true, max: 100, ticks: { callback: (v) => v + '%', color: tickColor }, grid: { color: gridColor } },
+          x: { ticks: { color: tickColor }, grid: { display: false } }
+        }
+      }
+    });
+
+    const importanceCanvas = document.getElementById('importanceChart');
+    sizeCanvas(importanceCanvas, 260);
+    importanceChart = new Chart(importanceCanvas, {
+      type: 'bar',
+      data: {
+        labels: ['مدة الاشتراك', 'عقد سنتين', 'إجمالي الفواتير', 'خدمة الألياف الضوئية', 'الدفع بالشيك الإلكتروني'],
+        datasets: [{ data: [17.3, 16.0, 11.0, 9.3, 7.6], backgroundColor: accent, borderRadius: 4 }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: (c) => c.parsed.x + '%' } }
+        },
+        scales: {
+          x: { beginAtZero: true, ticks: { callback: (v) => v + '%', color: tickColor }, grid: { color: gridColor } },
+          y: { ticks: { color: tickColor }, grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    buildCharts();
+  } else {
+    window.addEventListener('load', buildCharts);
+  }
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildCharts, 150);
+  });
+</script>
+</body>
+</html>
